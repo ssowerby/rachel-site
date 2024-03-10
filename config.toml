@@ -1,0 +1,54 @@
+baseURL = "/"
+languageCode = "en-gb"
+title = "Rachel Goth"
+sectionPagesMenu = "main"
+copyright = "Copyright &copy; 2021-{year} Rachel Goth"
+
+enableRobotsTXT = true
+disableAliases = true
+
+[params]
+disallow_search_engines = false # set robots.txt to disallow everything
+description = "Master your mind and beat the stress, anxiety or fear which has been holding you back."
+images = ['/images/RGnewlogo2.png']
+
+# add redirects + headers + dynamic config
+[outputs]
+home = ["HTML", "REDIRECTS", "HEADERS"]
+section = ["HTML", "CONF"]
+
+# remove .{ext} from text/netlify
+[mediaTypes."text/netlify"]
+suffixes = [""]
+delimiter = ""
+
+# Add config
+[mediaTypes."application/yaml"]
+suffixes = ["yml"]
+
+# add output format for netlify _redirects
+[outputFormats.REDIRECTS]
+mediatype = "text/netlify"
+baseName = "_redirects"
+isPlainText = true
+notAlternative = true
+
+# add output format for netlify _headers
+[outputFormats.HEADERS]
+mediatype = "text/netlify"
+baseName = "_headers"
+isPlainText = true
+notAlternative = true
+
+# add output format for Netlify config
+[outputFormats.CONF]
+mediatype = "application/yaml"
+baseName = "config"
+isPlainText = true
+notAlternative = true
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.goldmark.extensions]
+table = true

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ block "title" . }}
+      {{- with .Title }}{{ . }} | {{ end }}{{ .Site.Title -}}
+      {{ end }}</title>
+
+   {{ template "_internal/opengraph.html" . }}
+
+   {{ $mainCss := resources.Get "css/main.css" }}
+   {{ $cssBundle := slice $mainCss | resources.Concat "css/bundle.css" | postCSS }}
+
+   {{ $js := resources.Get "js/main.js" }}
+
+    <link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
+    <link rel="canonical" href="{{ .Permalink | absURL }}">
+
+   {{ if .Description }}
+   <meta name="description" content="{{ .Description }}">
+   {{ else if .Summary }}
+   <meta name="description" content="{{ .Summary | plainify }}">
+   {{ else }}
+   <meta name="description" content="{{ .Site.Params.description }}">
+   {{ end }}
+
+   {{ hugo.Generator }}
+
+   {{ range .AlternativeOutputFormats }}
+   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+   {{ end }}
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="2ba64ac8-5147-4324-a942-171281f9b5bd" data-blockingmode="auto" type="text/javascript"></script>
+
+    {{ if eq (getenv "HUGO_ENV") "production" }}
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164651226-1"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-164651226-1');
+   </script>
+   <!-- End Google Tag Manager -->
+    {{ end }}
+
+</head>
+{{ $bodytype := cond .IsHome "home" .Section }}
+<body class="{{$bodytype}} kind-{{.Kind}} {{.File.TranslationBaseName}} {{.Params.style}}">
+{{ if eq (getenv "HUGO_ENV") "production" }}
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K9NMKQ"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+{{ end }}
+
+<div class="content-area">
+    <div id="topbox" style="visibility: hidden; position: absolute; top: 0px; background-color: red; width:10px; height:10px"></div>
+    {{ block "main" . }}
+    {{ end }}
+</div>
+
+
+<script src="{{ $js.Permalink }}" data-blockingmode="auto" type="text/javascript"></script>
+
+</body>
+</html>

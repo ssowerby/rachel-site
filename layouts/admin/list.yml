@@ -1,0 +1,118 @@
+backend:
+  name: github
+  repo: ssowerby/relaxation-site
+  branch: {{ getenv "HEAD" }}
+  use_graphql: true
+  squash_merges: true
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+collections:
+
+  - name: "testimonial"
+    label: "Testimonial"
+    folder: "content/testimonials"
+    identifier_field: author
+    create: true
+    fields:
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Order", name: "order", widget: "number", valueType: "int", min: 1, max: 9999 }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    summary: "{{ string "&lbrace;&lbrace;title&rbrace;&rbrace; &lbrace;&lbrace;publishDate&rbrace;&rbrace;" | htmlUnescape }}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime", format: "YYYY-MM-DD HH:mm:ss"}
+      - { label: "Summary", name: "summary", widget: "markdown", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Visible", name: "visible", widget: hidden, default: true }
+
+  - name: pay
+    label: "Payment"
+    folder: "content/pay"
+    identifier_field: name
+    summary: '{{ printf "{{name}}" }}'
+    format: frontmatter
+    create: true
+    fields:
+      - name: title
+        label: Page Title
+        widget: text
+        required: false
+      - name: body
+        label: Introductory Text
+        widget: markdown
+      - name: buttons
+        label: Buttons
+        widget: list
+        summary: '{{ printf "{{description}}" }}'
+        create: true
+        fields:
+          - { label: "Paypal button ID", name: "button", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
+          - { label: "Additional", name: "additional", widget: "string", required: false }
+          - { label: "Price", name: "price", widget: "number", value_type: "float" }
+
+  - name: "faq"
+    label: "FAQ"
+    folder: "content/faqs"
+    create: true
+    fields:
+    - { label: "Question", name: "title", widget: "string" }
+    - { label: "Answer", name: "body", widget: "markdown" }
+
+  - name: "page"
+    label: "Page"
+    folder: "content"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "signup"
+    label: "Sign-up"
+    folder: "content/signup"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "thankyou"
+    label: "Thank you"
+    folder: "content/thankyou"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "section"
+    label: "Multi-section Pages"
+    folder: "data"
+    format: "yml"
+    fields:
+      - label: "Intro"
+        name: "intro"
+        widget: "object"
+        fields:
+          - { label: "Title", name: "title", widget: "string", required: true }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Image Position", name: "imgpos", widget: "select", options: ["left", "right"], required: true, default: "left" }
+          - { label: "Content", name: "body", widget: "markdown", required: true }
+      - label: Sections
+        name: sections
+        widget: list
+        fields:
+          - { label: "Content", name: "body", widget: "markdown", required: true }
+          - { label: "Style", name: "style", default: "regular", widget: "select", options: ["regular", "inverted", "circled", "circled quote", "bullet left", "bullet right"], required: true }
+          - { label: "Colour", name: "colour", widget: "select", required: true, options: ["orange", "blue", "pink"] }
+          - { label: "Background", name: "background", widget: "image", required: false }
+          - { label: "Background size", name: "bgsize", default: "cover", widget: "select", options: ["cover", "contain"], required: false }
+          - { label: "Sidebar Image", name: "sidebar", widget: "image", required: false }
+          - { label: "Quoter", name: "quoter", widget: "image", required: false }
+          - { label: "Position", name: "position", widget: "number", valueType: "int", min: 0, max: 100, default: 0, required: false }
