@@ -12,7 +12,7 @@
    {{ $mainCss := resources.Get "css/main.css" }}
    {{ $cssBundle := slice $mainCss | resources.Concat "css/bundle.css" | postCSS }}
 
-   {{ $js := resources.Get "js/main.js" }}
+    {{ $js := cond (eq (getenv "HUGO_ENV") "production") (resources.Get "js/main.js" | minify) (resources.Get "js/main.js") }}
 
     <link rel="stylesheet" href="{{ $cssBundle.RelPermalink }}">
     <link rel="canonical" href="{{ .Permalink | absURL }}">
@@ -47,18 +47,16 @@
 
 </head>
 {{ $bodytype := cond .IsHome "home" .Section }}
-<body class="{{$bodytype}} kind-{{.Kind}} {{.File.TranslationBaseName}} {{.Params.style}}">
+<body>
 {{ if eq (getenv "HUGO_ENV") "production" }}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5K9NMKQ"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 {{ end }}
 
-<div class="content-area">
-    {{ block "main" . }}
-    {{ end }}
-</div>
+{{ block "main" . }}
+{{ end }}
 
-<script src="{{ $js.Permalink }}" data-blockingmode="auto" type="text/javascript"></script>
+<script src="{{ $js.RelPermalink }}" data-blockingmode="auto" type="text/javascript"></script>
 
 </body>
 </html>

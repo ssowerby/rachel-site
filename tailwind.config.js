@@ -1,11 +1,4 @@
 module.exports = {
-    purge: [],
-    darkMode: false,
-    theme: {
-        extend: {},
-    },
-    variants: {
-        extend: {},
-    },
+    content: ['./hugo_stats.json'],
     plugins: [],
 }

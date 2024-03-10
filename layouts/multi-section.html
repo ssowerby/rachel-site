@@ -4,14 +4,14 @@
 
 {{ with $data }}
 
-<div class="text">
-    {{ .intro.body | markdownify }}
+<div class="max-h-screen snap-y snap-mandatory overflow-y-scroll">
+    {{ range .sections }}
+    {{ $sectionstyle := printf "sections/%s" .style }}
+    <div class="h-screen snap-center">
+        {{ partial $sectionstyle . }}
+    </div>
+    {{end}}
 </div>
-
-{{ range .sections }}
-{{ $sectionstyle := printf "sections/%s" .style }}
-{{ partial $sectionstyle . }}
-{{end}}
 
 {{ end }}
 {{ end }}

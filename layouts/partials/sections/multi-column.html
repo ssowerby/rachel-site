@@ -1,8 +1,7 @@
 {{ $columns := len .items }}
+{{ partial "heading" . }}
 <div class="container columns-{{$columns}}">
 {{ range .items }}
-   <div class="bg-green-300">
-      {{ . }}
-   </div>
+   <div>{{ . }}</div>
 {{ end }}
 </div>
