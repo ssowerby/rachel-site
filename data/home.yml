@@ -1,0 +1,20 @@
+title: Home Page
+intro:
+  body: |
+    Intro
+
+sections:
+  - style: a
+    body: |
+      Section 1
+
+  - style: multi-column
+    items:
+      - Some text
+      - Some more text
+      - And yet more text
+
+  - style: a
+    body: |
+      Section 3
+      

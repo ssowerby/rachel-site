@@ -1,0 +1,33 @@
+{{ $bg := cond (and (isset . "background") (not (eq .background ""))) (print `background-image: url('` .background `'); `) "" }}
+{{ $bgp := cond (and (isset . "bgpos") (not (eq .bgpos ""))) (print `background-position: ` .bgpos `; `) "" }}
+{{ $bgs := print `background-size: ` (default "cover" .bgsize) `; ` }}
+{{ $quoter := cond (and (isset . "quoter") (not (eq .quoter ""))) (print `--quoter: url('` .quoter `'); `) "" }}
+
+{{ $attrs := print `style="` $bg $bgs $bgp $quoter ` --position:` (default 0 .position) `; --padding: ` (default 0 .padding) `; "` }}
+
+{{ $idlink := cond (isset . "name") (print `id="` .name `"`) "" }}
+
+<div {{ $idlink | safeHTMLAttr }} class="content {{ .style }} bg-{{ .colour }}" {{ $attrs | safeHTMLAttr }}>
+   <div class="content-wrapper">
+      <div class="content-text">
+         <div class="content-outer">
+            <div class="content-inner">
+               {{ if .heading }}
+               <div class="content-heading"><h1>{{ .heading }}</h1></div>
+               {{ end }}
+               {{ if .sidebar }}
+               <div class="content-sidebar portrait">
+                  <img src="{{ .sidebar }}">
+               </div>
+               {{ end }}
+               <div class="content-body">{{ .body | markdownify }}</div>
+            </div>
+         </div>
+      </div>
+      {{ if .sidebar }}
+         <div class="content-sidebar landscape">
+            <img src="{{ .sidebar }}">
+         </div>
+      {{ end }}
+   </div>
+</div>

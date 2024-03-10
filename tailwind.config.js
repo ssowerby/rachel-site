@@ -1,5 +1,11 @@
-const typography = require('@tailwindcss/typography');
-
 module.exports = {
-    plugins: [typography],
-};
+    purge: [],
+    darkMode: false,
+    theme: {
+        extend: {},
+    },
+    variants: {
+        extend: {},
+    },
+    plugins: [],
+}

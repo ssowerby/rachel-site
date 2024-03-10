@@ -1,0 +1,8 @@
+{{ $columns := len .items }}
+<div class="container columns-{{$columns}}">
+{{ range .items }}
+   <div class="bg-green-300">
+      {{ . }}
+   </div>
+{{ end }}
+</div>

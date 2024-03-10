@@ -1,0 +1,17 @@
+{{ define "main" }}
+{{ $datatype := cond .IsHome "home" .Section }}
+{{ $data := (index .Site.Data $datatype) }}
+
+{{ with $data }}
+
+<div class="text">
+    {{ .intro.body | markdownify }}
+</div>
+
+{{ range .sections }}
+{{ $sectionstyle := printf "sections/%s" .style }}
+{{ partial $sectionstyle . }}
+{{end}}
+
+{{ end }}
+{{ end }}
