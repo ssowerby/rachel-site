@@ -1,7 +1,13 @@
-{{ $columns := len .items }}
+<div class="p-8">
 {{ partial "heading" . }}
-<div class="container columns-{{$columns}}">
+{{ partial "before" . }}
+
+<div class="grow flex flex-row items-center gap-8 justify-center py-12">
 {{ range .items }}
-   <div>{{ . }}</div>
+   <div class="h-full p-6 text-center basis-1 grow">{{ . | markdownify }}</div>
 {{ end }}
+</div>
+
+{{ partial "after" . }}
+
 </div>

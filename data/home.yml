@@ -3,15 +3,32 @@ title: Home Page
 sections:
   - style: simple
     body: |
-      Section 1
+      Some intro about a great course
 
   - style: multi-column
+    before: Some intro text for the things
     items:
-      - Some text
-      - Some more text
-      - And yet more text
+      - Some text about thing 1
+      - Some text about thing 2
+      - Some text about thing 3
+
+  - style: two-thirds-width
+    side: left
+    before: Testing two thirds left
+    body: |
+      Some body text
+    image: poop
+
+  - style: two-thirds-width
+    side: right
+    before: Testing two thirds right
+    body: |
+      Some body text
+    image: poop
 
   - style: simple
     body: |
       Section 3
+      
+      <button class="btn btn-blue">Sign up</button>
       
