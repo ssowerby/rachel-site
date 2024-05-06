@@ -2,10 +2,27 @@ title: Home Page
 
 sections:
   - style: simple
+    blob: top
+    body: |
+      Some intro about a great course
+
+  - style: simple
+    blob: bottom
+    body: |
+      Some intro about a great course
+
+  - style: simple
+    blob: left
+    body: |
+      Some intro about a great course
+
+  - style: simple
+    blob: right
     body: |
       Some intro about a great course
 
   - style: multi-column
+    background: seasalt
     before: Some intro text for the things
     items:
       - Some text about thing 1
@@ -13,18 +30,21 @@ sections:
       - Some text about thing 3
 
   - style: two-thirds-width
+    side: right
+    background: pink
+    body: |
+      # A bit about me
+      It’s not by accident I’ve found myself as a calming coach. 
+      Before I had any professional experience in this area I had plenty personally. 
+      And it was that personal knowledge of the effects of stress and anxiety which lead me to train as a clinical hypnotherapist and start my journey to becoming a coach. 
+      [Interested to know more?](#about)
+    image: "/uploads/me_and_dot.jpg"
+
+  - style: two-thirds-width
     side: left
     before: Testing two thirds left
     body: |
       Some body text
-    image: poop
-
-  - style: two-thirds-width
-    side: right
-    before: Testing two thirds right
-    body: |
-      Some body text
-    image: poop
 
   - style: simple
     body: |

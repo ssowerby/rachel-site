@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ssowerby/relaxation-site
+  repo: ssowerby/rachel-site
   branch: {{ getenv "HEAD" }}
   use_graphql: true
   squash_merges: true
@@ -92,27 +92,46 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "section"
-    label: "Multi-section Pages"
+    label: "Sections"
+    label_singular: "section"
     folder: "data"
     format: "yml"
     fields:
-      - label: "Intro"
-        name: "intro"
-        widget: "object"
-        fields:
-          - { label: "Title", name: "title", widget: "string", required: true }
-          - { label: "Image", name: "image", widget: "image", required: false }
-          - { label: "Image Position", name: "imgpos", widget: "select", options: ["left", "right"], required: true, default: "left" }
-          - { label: "Content", name: "body", widget: "markdown", required: true }
+      - { label: "Title", name: "title", widget: "string", required: true }
       - label: Sections
-        name: sections
+        name: "sections"
         widget: list
-        fields:
-          - { label: "Content", name: "body", widget: "markdown", required: true }
-          - { label: "Style", name: "style", default: "regular", widget: "select", options: ["regular", "inverted", "circled", "circled quote", "bullet left", "bullet right"], required: true }
-          - { label: "Colour", name: "colour", widget: "select", required: true, options: ["orange", "blue", "pink"] }
-          - { label: "Background", name: "background", widget: "image", required: false }
-          - { label: "Background size", name: "bgsize", default: "cover", widget: "select", options: ["cover", "contain"], required: false }
-          - { label: "Sidebar Image", name: "sidebar", widget: "image", required: false }
-          - { label: "Quoter", name: "quoter", widget: "image", required: false }
-          - { label: "Position", name: "position", widget: "number", valueType: "int", min: 0, max: 100, default: 0, required: false }
+        typeKey: style
+        types:
+          - label: "Simple"
+            name: "simple"
+            widget: object
+            fields:
+              - { label: "Body", name: "body", widget: "markdown" }
+              - { label: "Background", name: "background", widget: "select", options: ["regular", "seasalt", "pink"], default: "regular", required: true }
+              - { label: "Blob", name: "blob", widget: "select", options: ["top", "left", "right", "bottom"], required: true }
+              - { label: "Heading", name: "heading", widget: "text", required: false }
+              - { label: "Before", name: "before", widget: "markdown", required: false }
+              - { label: "After", name: "after", widget: "markdown", required: false }
+          - label: "Multi column"
+            name: "multi-column"
+            widget: object
+            fields:
+              - { label: "Background", name: "background", widget: "select", options: ["regular", "seasalt", "pink"], default: "regular", required: true }
+              - { label: "Blob", name: "blob", widget: "select", options: ["top", "left", "right", "bottom"], required: true }
+              - { label: "Heading", name: "heading", widget: "text", required: false }
+              - { label: "Before", name: "before", widget: "markdown", required: false }
+              - { label: "Items", name: "items", widget: "list" }
+              - { label: "After", name: "after", widget: "markdown", required: false }
+          - label: "Two thirds width"
+            name: "two-thirds-width"
+            widget: object
+            fields:
+              - { label: "Body", name: "body", widget: "markdown" }
+              - { label: "Side", name: "side", options: ["left","right"], default: "left" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Background", name: "background", widget: "select", options: ["regular", "seasalt", "pink"], default: "regular", required: true }
+              - { label: "Blob", name: "blob", widget: "select", options: ["top", "left", "right", "bottom"], required: true }
+              - { label: "Heading", name: "heading", widget: "text", required: false }
+              - { label: "Before", name: "before", widget: "markdown", required: false }
+              - { label: "After", name: "after", widget: "markdown", required: false }

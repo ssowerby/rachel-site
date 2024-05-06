@@ -11,3 +11,65 @@
 .btn-blue:hover {
     @apply bg-blue-700;
 }
+
+h1 {
+    font-size: 150% !important;
+    font-weight: bolder;
+    padding-bottom: 0.5em;
+}
+h2 {
+    font-size: 125% !important;
+    font-weight: bold;
+    padding-bottom: 0.25em;
+}
+
+.background-wrapper.colour-pink {
+    background-color: #F78B8E
+}
+
+.background-wrapper.colour-seasalt {
+    background-color: #789287;
+}
+
+.section {
+    position: relative;
+}
+
+.background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.blob {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    z-index: -2;
+}
+
+.blob-right {
+    right: 0;
+    height: 100%;
+    min-width: 100vh;
+    transform: rotate(270deg) translate(-5%, 60%);
+}
+.blob-top {
+    width: 100%;
+    transform: rotate(180deg) translate(-5%, 60%);
+}
+.blob-left {
+    left: 0;
+    height: 100%;
+    transform: rotate(90deg) translate(-5%, 60%);
+    min-width: 100vh;
+}
+.blob-bottom {
+    width: 100%;
+    bottom: 0;
+    transform:  translate(-5%, 60%);;
+}

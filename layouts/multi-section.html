@@ -4,11 +4,21 @@
 
 {{ with $data }}
 
-<div class="max-h-screen snap-y snap-mandatory overflow-y-scroll">
+<div class="h-screen max-h-screen snap-y snap-mandatory overflow-y-scroll">
     {{ range .sections }}
     {{ $sectionstyle := printf "sections/%s" .style }}
-    <div class="h-screen snap-center">
-        {{ partial $sectionstyle . }}
+    {{ $bgColour := default "regular" .background }}
+    <div class="section h-screen snap-center">
+        <div class="background-wrapper colour-{{ $bgColour }}">
+            {{ if isset . "blob" }}
+            <div class="blob blob-{{ .blob }}">
+                <img src="/images/colour_blob.jpg" />
+            </div>
+            {{ end }}
+        </div>
+        <div class="p-8">
+            {{ partial $sectionstyle . }}
+        </div>
     </div>
     {{end}}
 </div>

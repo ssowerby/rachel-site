@@ -1,17 +1,14 @@
-<div class="p-8">
 {{ partial "heading" . }}
 {{ partial "before" . }}
 
-<div class="grow flex flex-row items-center gap-8 justify-center py-12">
+<div class="w-full grid grid-cols-3 gap-4 py-12">
    {{ if eq .side "left" }}
-      <div class="h-full p-6 text-center basis-2 grow">{{ .body | markdownify }}</div>
-      <div class="h-full p-6 text-center basis-1 grow">Right</div>
+      {{ partial "two_thirds" . }}
+      {{ partial "sidepic" . }}
    {{ else }}
-      <div class="h-full p-6 text-center basis-1 grow">Left</div>
-      <div class="h-full p-6 text-center basis-2 grow">{{ .body | markdownify }}</div>
+      {{ partial "sidepic" . }}
+      {{ partial "two_thirds" . }}
    {{ end }}
 </div>
 
 {{ partial "after" . }}
-
-</div>
