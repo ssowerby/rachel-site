@@ -121,7 +121,11 @@ collections:
               - { label: "Blob", name: "blob", widget: "select", options: ["top", "left", "right", "bottom"], required: true }
               - { label: "Heading", name: "heading", widget: "text", required: false }
               - { label: "Before", name: "before", widget: "markdown", required: false }
-              - { label: "Items", name: "items", widget: "list" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Body", name: "body", widget: "markdown" }
               - { label: "After", name: "after", widget: "markdown", required: false }
           - label: "Two thirds width"
             name: "two-thirds-width"

@@ -25,9 +25,9 @@ sections:
     background: seasalt
     before: Some intro text for the things
     items:
-      - Some text about thing 1
-      - Some text about thing 2
-      - Some text about thing 3
+      - { body: "Some text about thing 1" }
+      - { body: "Some text about thing 2" }
+      - { body: "Some text about thing 3" }
 
   - style: two-thirds-width
     side: right
