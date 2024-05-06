@@ -3,7 +3,7 @@
 
 <div class="grow flex flex-row items-center gap-8 justify-center py-12">
 {{ range .items }}
-   <div class="h-full p-6 text-center basis-1 grow">{{ . | markdownify }}</div>
+   <div class="h-full p-6 text-center basis-1 grow">{{ .body | markdownify }}</div>
 {{ end }}
 </div>
 
