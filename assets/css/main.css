@@ -23,6 +23,10 @@ h2 {
     padding-bottom: 0.25em;
 }
 
+.background-wrapper.colour-regular {
+    background-color: #FAF9F7
+}
+
 .background-wrapper.colour-pink {
     background-color: #F78B8E
 }

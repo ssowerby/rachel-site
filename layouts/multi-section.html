@@ -10,7 +10,7 @@
     {{ $bgColour := default "regular" .background }}
     <div class="section h-screen snap-center">
         <div class="background-wrapper colour-{{ $bgColour }}">
-            {{ if isset . "blob" }}
+            {{ if and (isset . "blob") (ne .blob "none") }}
             <div class="blob blob-{{ .blob }}">
                 <img src="/images/colour_blob.jpg" />
             </div>
