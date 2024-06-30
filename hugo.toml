@@ -50,6 +50,9 @@ notAlternative = true
 [markup.goldmark.renderer]
 unsafe = true
 
+[markup.goldmark.parser.attribute]
+block = true
+
 [markup.goldmark.extensions]
 table = true
 

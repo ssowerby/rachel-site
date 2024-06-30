@@ -1,9 +1,56 @@
 title: Home Page
 sections:
   - style: simple
+    blob: none
+    background: pink
+    body: |
+      <div class="tagline">
+      
+      A CALM NERVOUS SYSTEM
+
+      =
+      {.separator}
+      
+      A CALMER & HEALTHIER YOU
+
+      </div>
+
+      <div class="citation">
+      
+      > "I work with people to reduce their stress and anxiety for a calmer nervous system, quieter mind and healthier body"
+      
+      <cite>Rachel Goth, CALMING Coach</cite>
+      
+      </div>
+
+  - style: simple
     blob: top
     body: |
-      Some intro about a great course
+      Are you struggling with -
+        | Mind | Body |
+        |---|---|
+        | Excessive worry           | High blood pressure |
+        | Panic attacks             | IBS | 
+        | Inability to switch off   | Can’t lose weight |
+        | And more..                | And more.. |
+
+      A stressed and anxious nervous system can result in all of the above symptoms and more.
+        
+      I work with people to reduce their stress and anxiety for a calmer nervous system, quieter mind and healthier body.
+      
+      Even if you know your issue has another cause, being highly stressed or anxious can exacerbate it. Because long term high levels of stress and anxiety impair your thinking, immune system and bodily functions. (link to a page explaining fight or flight)
+      
+      By combining hypnotherapy, coaching and EFT (Emotional Freedom Technique) I work with you to reduce your stress and anxiety inorder to relieve your symptoms.
+      
+      You can work with me 1-2-1 online via Zoom and also in private group training.
+      
+      What working with me looks like (working with me page)
+      
+      Book in for a free 30 minute taster to see if we’re a good fit to work together.
+      
+      Fellow coaches
+      Are you a personal trainer. health/nutrition coach, weight loss coach, life coach, business coach or menopause coach? If your client’s progress is stuck find out how I can help coaches. (link to a page about helping coaches)
+
   - style: simple
     blob: bottom
     body: |
