@@ -8,7 +8,7 @@
     {{ range .sections }}
     {{ $sectionstyle := printf "sections/%s" .style }}
     {{ $bgColour := default "regular" .background }}
-    <div class="section h-screen snap-center">
+    <div class="section h-full snap-center">
         <div class="background-wrapper colour-{{ $bgColour }}">
             {{ if and (isset . "blob") (ne .blob "none") }}
             <div class="blob blob-{{ .blob }}">
