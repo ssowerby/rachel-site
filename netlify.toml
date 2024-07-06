@@ -10,7 +10,7 @@
     command = "hugo --gc -b https://www.rachelgoth.com"
 
 [context.production.environment]
-    HUGO_ENV = "production"
+    HUGO_ENV = "development"
 
 [context.deploy-preview]
     command = "hugo --gc --buildFuture -b $DEPLOY_PRIME_URL"
