@@ -90,8 +90,8 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "section"
-    label: "Sections"
-    label_singular: "section"
+    label: "Multi-section Pages"
+    label_singular: "multi-section page"
     folder: "data"
     format: "yml"
     fields:
