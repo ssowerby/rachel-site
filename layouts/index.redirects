@@ -1,2 +1,6 @@
 # redirects for Netlify - https://www.netlify.com/docs/redirects/
-/ https://www.practicalmentalfitness.com
+{{- range $p := .Site.Pages -}}
+{{- range .Aliases }}
+{{ . }} {{ $p.RelPermalink -}}
+{{- end }}
+{{- end -}}
